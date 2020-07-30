@@ -1,0 +1,55 @@
+{% extends 'blog/baseblog.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="resume-section p-3 p-lg-5 d-flex align-items-center" style="background-image:url({% static 'blog_files/images/blog-background.jpg'%})" id="interests">
+      <div class="w-100">
+        <h2 class="mb-2 align-items-center">{{ course.title }}</h2><br><br><br>
+         <img class="card-img-top" src="{{ course.thumbnail.url }}" width="400" height="400">
+        <h4>{{ course.content|safe }}</h4>
+        <p class="mb-0">{{ course.timestamp }}</p><br><br>
+      </div>
+    </section>
+
+</section>
+<section  style="background-image:url({% static 'blog_files/images/comments-background.jpg'%})" id="about">
+<h3>Blog Comments     ({{ course.comments.count}})</h3>
+{% for comment in course.get_comments %}
+<div class="comment">
+<div class="image">
+  {% if comment.user.author %}
+  <img src="{{ comment.user.author.profile_pic.url }}" alt="" class="img-fluid rounded-circle" width="30px">
+  {% else %}
+  <img src="{% static 'blog_files/images/user.png' %}" alt="" class="img-fluid rounded-circle" width="30px">
+  {% endif %}
+  <strong>{{ comment.user.username }}</strong>
+  <p>{{ comment.timestamp|timesince }} ago</p>
+</div>
+<div class="comment-body  " >
+<h4>{{ comment.content }}</h4>
+</div>
+</div>
+
+{% endfor %}
+<br><br>
+{% if request.user.is_authenticated %}
+<h3>Leave a comment</h3>
+<div class="add-comment">
+<form method="POST" action=".">
+{% csrf_token %}
+<div class="row">
+<div class="form-group col-md-12">
+  {{ form }}
+</div>
+
+</div>
+<button type="submit">Leave a comment</button>
+
+</form>
+{% else %}
+<a href="{% url 'account_login'%}">Login to comment</a>
+{% endif %}
+</div>
+</section>
+{% endblock content %}

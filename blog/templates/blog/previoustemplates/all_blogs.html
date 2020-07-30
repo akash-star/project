@@ -1,0 +1,39 @@
+{% extends 'blog/baseblog.html' %}
+{% load static %}
+{% block content %}
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-8 px-0">
+          <h1 class="display-4 font-italic">Title Cover page</h1>
+          <p class="lead my-3">Multiple lines.</p>
+          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 align-center">
+                <div class="post-preview">
+                    <a href="post.html">
+                        {% for blog in blog %}
+                        <h1 class="post-title"> <a href="{{ blog.get_absolute_url }}"><h3 class="mb-2 text-bold"><i>{{ blog.title }}</i></h3></a></h1>
+                                  <img class=" mr-3 img-fluid post-thumb d-none d-md-flex card-img-top text-info"src="{{ blog.image.url }}" width="200px" height="100px">
+                    </a>
+                                 <p class=" post-subtitle mb-4 text-dark-bold" style="font-size:25px " style="text-decoration-color:red">{{ blog.summary }}</p>
+                                <a href="{{blog.get_absolute_url}}">Read more &rarr;</a><br><br>
+                                <h6 class="mb-0">{{ blog.date }}</h6><br><br>
+                             {% endfor %}
+                    <hr>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                </div>
+                <hr>
+                 Pager
+       <!--          <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ --> <!-- -->
+<!-- {% endblock content %} -->
