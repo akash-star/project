@@ -27,4 +27,5 @@ urllib3==1.25.9
 virtualenv==20.0.23
 whitenoise==5.1.0
 django-allauth==0.13.0
+django-tinymce-4
 
