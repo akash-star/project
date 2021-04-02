@@ -26,4 +26,4 @@ stripe==2.48.0
 urllib3==1.25.9
 virtualenv==20.0.23
 whitenoise==5.1.0
-jquery==3.5.0
+
