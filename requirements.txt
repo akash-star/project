@@ -10,7 +10,6 @@ Django==3.0.7
 django-bootstrap3==12.1.0
 django-filter==2.3.0
 django-summernote==0.8.11.6
-django-filters==0.2.1
 django-heroku==0.3.1
 django-urls==1.1.2
 django-widget-tweaks==1.4.8
