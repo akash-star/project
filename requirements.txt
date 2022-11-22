@@ -15,7 +15,7 @@ django-urls==1.1.2
 django-widget-tweaks==1.4.8
 filelock==3.0.12
 idna==2.9
-Pillow==8.1.1
+Pillow==9.3.0
 psycopg2==2.8.5
 pytz==2020.1
 requests==2.24.0
